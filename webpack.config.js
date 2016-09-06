@@ -1,4 +1,8 @@
+//打开浏览器
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
+//单独打包css
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 const config = {
 	entry:'./index.js',
 	output:{
@@ -8,11 +12,25 @@ const config = {
 	},
 	module:{
 		loaders:[
-		{test:/\.js/,exclude:/node_module/,loader:'babel-loader?presets[]=es2015&presets[]=react'}
+			{
+				test:/\.js/,
+				exclude:/node_module/,
+				loader:'babel-loader?presets[]=es2015&presets[]=react'
+			},
+			{
+			    test: /\.css$/,
+			    loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+			},
+			{
+				test:/\.less$/i,
+				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+			}
 		]
 	},
 	plugins: [
-       new WebpackBrowserPlugin()
+	    new ExtractTextPlugin("bundle.css"),
+       // new WebpackBrowserPlugin()
+       
   ]
 };
 
