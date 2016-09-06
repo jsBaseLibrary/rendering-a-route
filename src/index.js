@@ -1,10 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
-import App from './modules/App';
-import About from './modules/About'
-import Repos from './modules/Repos'
-import NavLink from './modules/NavLink'
+import App from './components/App';
+import About from './components/About'
+import Repos from './components/Repos'
+import NavLink from './components/NavLink'
+
+import './styles/index.less';
+
 import {Router,Route,hashHistory} from 'react-router'
+
 render((
   <Router history={hashHistory}>
 	<Route path="/" component={App}>

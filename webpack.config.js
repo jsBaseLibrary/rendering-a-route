@@ -2,9 +2,10 @@
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
 //单独打包css
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const htmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
-	entry:'./index.js',
+	entry:'./src/index.js',
 	output:{
 		filename:'bundle.js',
 		publicPath:'dist/',
@@ -23,13 +24,18 @@ const config = {
 			},
 			{
 				test:/\.less$/i,
+				// loader: 'style!css!less'
 				loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
 			}
 		]
 	},
 	plugins: [
 	    new ExtractTextPlugin("bundle.css"),
-       // new WebpackBrowserPlugin()
+	    new htmlWebpackPlugin({
+	    	template: './src/index.html',
+	    	filename: './index.html'
+	    }),
+       new WebpackBrowserPlugin()
        
   ]
 };
