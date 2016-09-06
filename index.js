@@ -3,12 +3,16 @@ import {render} from 'react-dom';
 import App from './modules/App';
 import About from './modules/About'
 import Repos from './modules/Repos'
+import NavLink from './modules/NavLink'
+
+import './styles/index.less';
+
 import {Router,Route,hashHistory} from 'react-router'
 render((
   <Router history={hashHistory}>
 	<Route path="/" component={App}>
-		<Route path="/repos" component={Repos}/>
-	    <Route path="/about" component={About}/>
+		<NavLink path="/repos" component={Repos}/>
+	    <NavLink path="/about" component={About}/>
     </Route>
   </Router>
 ),document.getElementById('app'))
