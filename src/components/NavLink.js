@@ -3,6 +3,6 @@ import {Link} from 'react-router';
 
 export default React.createClass({
 	render(){
-		return <Link {...this.props} acriveClassName="active" />
+		return <Link {...this.props} activeClassName="active" />
 	}
 })

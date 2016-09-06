@@ -13,9 +13,9 @@ import {Router,Route,hashHistory} from 'react-router'
 render((
    <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="/repos" component={Repos}/>
-      {/* add the new route */}
-      <Route path="/repos/:userName/:repoName" component={Repo}/>
+      <Route path="/repos" component={Repos}>
+      	<Route path="/repos/:userName/:repoName" component={Repo}/>
+      </Route>
       <Route path="/about" component={About}/>
     </Route>
   </Router>

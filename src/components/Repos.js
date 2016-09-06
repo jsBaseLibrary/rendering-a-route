@@ -1,6 +1,6 @@
 // Repos.js
 import React from 'react'
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 import NavLink from './NavLink'
 // ...
 export default React.createClass({
@@ -9,12 +9,11 @@ export default React.createClass({
       <div>
         <h2>Repos</h2>
 
-        {/* add some links */}
-        <ul>
+        <ul role="nav">
           <li><NavLink to="/repos/reactjs/react-router">React Router</NavLink></li>
           <li><NavLink to="/repos/facebook/react">React</NavLink></li>
         </ul>
-
+        {this.props.children}
       </div>
     )
   }
