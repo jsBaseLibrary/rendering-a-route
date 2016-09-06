@@ -11,4 +11,3 @@ render((
     <Route path="/about" component={About}/>
   </Router>
 ),document.getElementById('app'))
-//render(<App/>, document.getElementById('app'))
