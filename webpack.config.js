@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 //打开浏览器
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
 //单独打包css
@@ -30,14 +31,15 @@ const config = {
 		]
 	},
 	plugins: [
-	    new ExtractTextPlugin("bundle.css"),
-	    new htmlWebpackPlugin({
-	    	template: './src/index.html',
-	    	filename: './index.html'
-	    }),
-       new WebpackBrowserPlugin()
+		    new ExtractTextPlugin("bundle.css"),
+		    new htmlWebpackPlugin({
+		    	template: './src/index.html',
+		    	filename: './index.html'
+		    }),
+	       new WebpackBrowserPlugin()
+	       // new webpack.optimize.UglifyJsPlugin()
        
-  ]
+  			]
 };
 
 module.exports = config;
