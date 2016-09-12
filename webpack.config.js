@@ -8,10 +8,11 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
 	entry:'./src/index.js',
 	output:{
-		filename:'bundle.js',
+		filename:'bundle[hash:8].js',
 		publicPath:'dist/',
 		path:__dirname+'/dist'
 	},
+	'devtool': "source-map",
 	module:{
 		loaders:[
 			{
@@ -31,7 +32,7 @@ const config = {
 		]
 	},
 	plugins: [
-		    new ExtractTextPlugin("bundle.css"),
+		    new ExtractTextPlugin("bundle[hash:8].css"),
 		    new htmlWebpackPlugin({
 		    	template: './src/index.html',
 		    	filename: './index.html'
